@@ -32,13 +32,13 @@ body {
 		<div align="center">
 			<div class="btn-group">
 				<a
-					href="http://localhost:8080/StockAndPortfolioManagementSystem/home"><button
+					href="home"><button
 						type="button">HOME</button></a> <a
-					href="http://localhost:8080/StockAndPortfolioManagementSystem/admin/login"><button
+					href="adminlogin"><button
 						type="button">ADMIN</button></a> <a
-					href="http://localhost:8080/StockAndPortfolioManagementSystem/agent/login"><button
+					href="agentlogin"><button
 						type="button">AGENT</button></a> <a
-					href="http://localhost:8080/StockAndPortfolioManagementSystem/customer/login"><button
+					href="customerlogin"><button
 						type="button">CUSTOMER</button></a>
 			</div>
 		</div>

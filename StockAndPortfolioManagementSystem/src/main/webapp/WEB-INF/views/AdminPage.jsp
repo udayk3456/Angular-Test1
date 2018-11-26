@@ -17,7 +17,7 @@
 <title>AdminPage</title>
 <style type="text/css">
 body {
-	background-color: powderblue;
+	background-color: AntiqueWhite;
 }
 </style>
 </head>
@@ -32,7 +32,7 @@ body {
 	<div align="center">
 		<div class="btn-group">
 			<a
-				href="http://localhost:8080/StockAndPortfolioManagementSystem/admin/home"><button
+				href="home"><button
 					type="button">HOME</button></a>
 
 			<div class="btn-group">
@@ -40,18 +40,18 @@ body {
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="addcompany">Add Company</a> <a
 						class="dropdown-item" href="allcompanies">View Companies</a> <a
-						class="dropdown-item" href="#">Update Company</a> <a
-						class="dropdown-item" href="#">Delete Companies</a>
+						class="dropdown-item" href="editcompanies">Update Company</a> <a
+						class="dropdown-item" href="deletecompany">Delete Companies</a>
 				</div>
 			</div>
 
 			<div class="btn-group">
 				<button type="button" data-toggle="dropdown">SHARES</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Add Share</a> <a
-						class="dropdown-item" href="#">View Shares</a> <a
-						class="dropdown-item" href="#">Update Share</a> <a
-						class="dropdown-item" href="#">Delete Shares</a>
+					<a class="dropdown-item" href="addshare">Add Share</a> <a
+						class="dropdown-item" href="allshares">View Shares</a> <a
+						class="dropdown-item" href="editshare">Update Share</a> <a
+						class="dropdown-item" href="deleteshare">Delete Shares</a>
 				</div>
 			</div>
 
@@ -73,7 +73,7 @@ body {
 			</div>
 			
 			<a
-				href="http://localhost:8080/StockAndPortfolioManagementSystem/admin/logout"><button
+				href="../home"><button
 					type="button">LOGOUT</button></a>
 
 		</div>

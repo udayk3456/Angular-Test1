@@ -1,7 +1,5 @@
 package com.app.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,11 +24,11 @@ public class Customer {
 	@Column(name="last_name")
 	private String lastName;
 	@Column(name="dob")
-	private Date dob;
+	private String dob;
 	@Column(name="address")
 	private String address;
 	@Column(name="mobile")
-	private Integer mobile;
+	private Long mobile;
 	@Column(name="email")
 	private String email;
 	
@@ -38,19 +36,6 @@ public class Customer {
 		super();
 	}
 
-	public Customer(Integer id, String userName, String password, String firstName, String lastName, Date dob,
-			String address, Integer mobile, String email) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dob = dob;
-		this.address = address;
-		this.mobile = mobile;
-		this.email = email;
-	}
 
 	public Customer(Integer id) {
 		super();
@@ -97,13 +82,16 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
+	
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
+
 
 	public String getAddress() {
 		return address;
@@ -113,13 +101,17 @@ public class Customer {
 		this.address = address;
 	}
 
-	public Integer getMobile() {
+	
+
+	public Long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(Integer mobile) {
+
+	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
+
 
 	public String getEmail() {
 		return email;
@@ -129,12 +121,15 @@ public class Customer {
 		this.email = email;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", dob=" + dob + ", address=" + address + ", mobile=" + mobile + ", email="
 				+ email + "]";
 	}
+
+	
 	
 	
 }

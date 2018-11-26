@@ -9,7 +9,9 @@
 <body>
 <%@include file="HomePage.jsp" %>
 <div align="center">
-<a href="register">CLICKHERE</a>ForRegistration
+<a href="agent/home">AgentLogin</a><br>
+<a href="agentregister">CLICKHERE</a>ForRegistration
+${msg }
 </div>
 </body>
 </html>

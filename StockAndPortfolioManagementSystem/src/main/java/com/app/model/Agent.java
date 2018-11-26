@@ -27,28 +27,24 @@ public class Agent {
 	@Column(name="address")
 	private String address;
 	@Column(name="mobile")
-	private Integer mobile;
+	private Long mobile;
 	@Column(name="email")
 	private String email;
 	@Column(name="occupation")
 	private String occupation;
+	@Column(name="status")
+	private String status;
 	
 	public Agent() {
 		super();
 	}
 
-	public Agent(Integer id, String userName, String password, String firstName, String lastName, String address,
-			Integer mobile, String email, String occupation) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.mobile = mobile;
-		this.email = email;
-		this.occupation = occupation;
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Agent(Integer id) {
@@ -104,11 +100,12 @@ public class Agent {
 		this.address = address;
 	}
 
-	public Integer getMobile() {
+	
+	public Long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(Integer mobile) {
+	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
 
@@ -132,8 +129,9 @@ public class Agent {
 	public String toString() {
 		return "Agent [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", address=" + address + ", mobile=" + mobile + ", email=" + email
-				+ ", occupation=" + occupation + "]";
+				+ ", occupation=" + occupation + ", status=" + status + "]";
 	}
+
 	
 	
 

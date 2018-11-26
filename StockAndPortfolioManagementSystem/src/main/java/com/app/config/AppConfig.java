@@ -20,6 +20,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import com.app.model.Admin;
 import com.app.model.Agent;
 import com.app.model.Company;
+import com.app.model.Customer;
 import com.app.model.Share;
 
 @Configuration
@@ -52,7 +53,7 @@ public class AppConfig {
 			public LocalSessionFactoryBean sfObj() {
 				LocalSessionFactoryBean sf=new LocalSessionFactoryBean();
 				sf.setDataSource(dsObj());
-				sf.setAnnotatedClasses(Admin.class,Agent.class,Company.class,Share.class);
+				sf.setAnnotatedClasses(Admin.class,Agent.class,Company.class,Share.class,Customer.class);
 				sf.setHibernateProperties(props());
 				return sf;
 			}

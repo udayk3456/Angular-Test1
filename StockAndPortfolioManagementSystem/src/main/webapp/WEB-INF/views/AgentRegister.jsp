@@ -12,9 +12,9 @@
 <div align="center">
 <h3 style="color:green;">AgentRegistration</h3>
 <table>
-<form:form action="" method="post" modelAttribute="agent">
+<form:form action="agentinsert" method="post" modelAttribute="agent">
 <tr><td>UserName :</td><td><form:input path="userName"/></td></tr>
-<tr><td>Password :</td><td><form:input path="password"/></td></tr>
+<tr><td>Password :</td><td><form:password path="password"/></td></tr>
 <tr><td>FirstName :</td><td><form:input path="firstName"/></td></tr>
 <tr><td>LastName :</td><td><form:input path="lastName"/></td></tr>
 <tr><td>Address :</td><td><form:input path="address"/></td></tr>

@@ -11,15 +11,14 @@
 <%@include file="AdminPage.jsp" %>
 <br>
 <div align="center">
-<h3 style="color:Blue;">Add Company</h3>
-<br>
+<h4 style="color:Blue;"><b>Add Company</b></h4>
 <form:form action="insertcompany" method="post" modelAttribute="company">
-<pre>
-CompanyName  : <form:input path="companyName"/>
-CompanySymbol: <form:input path="companySymbol"/>
-
-<input type="submit" value="AddCompany">
-</pre>
+<table border="1">
+<tr><td>CompanyName  </td><td><form:input path="companyName"/></td></tr>
+<tr><td>CompanySymbol</td><td><form:input path="companySymbol"/></td></tr>
+ <form:hidden path="companyShare.id"/>
+<tr><td colspan="2" align="right"><input type="submit" value="AddCompany"></td>
+</table>
 </form:form>
 ${msg}
 </div>

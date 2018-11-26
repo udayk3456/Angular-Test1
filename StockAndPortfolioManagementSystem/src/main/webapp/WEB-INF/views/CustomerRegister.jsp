@@ -12,16 +12,16 @@
 <div align="center">
 <h3 style="color:green;">CustomerRegistration</h3>
 <table>
-<form:form action="" method="post" modelAttribute="customer">
+<form:form action="customerinsert" method="post" modelAttribute="customer">
 <tr><td>UserName :</td><td><form:input path="userName"/></td></tr>
-<tr><td>Password :</td><td><form:input path="password"/></td></tr>
+<tr><td>Password :</td><td><form:password path="password"/></td></tr>
 <tr><td>FirstName :</td><td><form:input path="firstName"/></td></tr>
 <tr><td>LastName :</td><td><form:input path="lastName"/></td></tr>
-<tr><td>DateOfBirth :</td><td><form:input path="dob"/></td></tr>
+<tr><td>DateOfBirth :</td><td><form:input type="date" path="dob"/></td></tr>
 <tr><td>Address :</td><td><form:input path="address"/></td></tr>
 <tr><td>MobileNumber :</td><td><form:input path="mobile"/></td></tr>
-<tr><td>Email :</td><td><form:input path="email"/></td></tr>
-<input type="submit" value="Create Customer">
+<tr><td>Email :</td><td><form:input type="email" path="email"/></td></tr>
+<tr><td></td><td><input type="submit" value="Create Customer"></td></tr>
 </form:form>
 </table>
 </div>

@@ -1,5 +1,6 @@
 package com.app.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,27 +24,15 @@ public class Company {
 	private String companyName;
 	@Column(name="company_symbol",unique=true)
 	private String companySymbol;
-	@ManyToOne(fetch=FetchType.EAGER)
+	
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="cidfk",unique=true)
 	private Share companyShare;
 	
 	public Company() {
 		super();
 	}
-
-	public Company(Integer id, String companyName, String companySymbol, Share companyShare) {
-		super();
-		this.id = id;
-		this.companyName = companyName;
-		this.companySymbol = companySymbol;
-		this.companyShare = companyShare;
-	}
-
-	public Company(Integer id) {
-		super();
-		this.id = id;
-	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -82,5 +71,8 @@ public class Company {
 				+ ", companyShare=" + companyShare + "]";
 	}
 
+	
+
+	
 	
 }
