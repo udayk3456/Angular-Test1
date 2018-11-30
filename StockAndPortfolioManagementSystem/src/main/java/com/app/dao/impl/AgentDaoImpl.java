@@ -24,6 +24,12 @@ public class AgentDaoImpl implements IAgentDao {
 		ht.update(agent);
 
 	}
+	
+
+	@Override
+	public void updateParticularAgentProperty(Agent agent) {
+		ht.update("status",agent);
+	}
 
 	@Override
 	public void deleteAgent(int id) {
@@ -43,6 +49,12 @@ public class AgentDaoImpl implements IAgentDao {
 	public List<Agent> getAllAgents() {
 		// TODO Auto-generated method stub
 		return ht.loadAll(Agent.class);
+	}
+
+	@Override
+	public List<Agent> getAgentsByStatus(String status) {
+		
+		return null;
 	}
 
 }

@@ -12,6 +12,11 @@ import com.app.model.Company;
 import com.app.service.IAgentService;
 import com.app.service.ICompanyService;
 
+/***
+ * 
+ *@author uday
+ *
+ **/
 @Controller
 @RequestMapping("/homepage/customer")
 public class CustomerController {
@@ -20,11 +25,23 @@ public class CustomerController {
 	@Autowired
 	private IAgentService agentService;
 	
+	
+	/***
+	 * 
+	 *Custome_HomePage
+	 *
+	 **/
 	@RequestMapping("/home")
 	public String home() {
 		return "CustomerPage";
 	}
 	
+	
+	/***
+	 * 
+	 *ViewCompanies
+	 *
+	 **/
 	@RequestMapping("/viewcompanies")
 	public String companiesData(ModelMap map) {
 		List<Company> companies=companyService.getAllCompanies();
@@ -32,6 +49,12 @@ public class CustomerController {
 		return "CustomerViewCompaniesData";
 	}
 	
+	
+	/***
+	 * 
+	 *ViewAgents
+	 *
+	 **/
 	@RequestMapping("/viewagents")
 	public String agentsData(ModelMap map) {
 		List<Agent> agents=agentService.getAllAgents();
@@ -40,6 +63,17 @@ public class CustomerController {
 	}
 	
 	
+	/***
+	 * 
+	 *PurchaseShares
+	 *
+	 **/
+	@RequestMapping("/purchaseshares")
+	public String purchaseShares(ModelMap map) {
+		
+		
+		return "CustomerPurchaseShares";
+	}
 	
 	
 	

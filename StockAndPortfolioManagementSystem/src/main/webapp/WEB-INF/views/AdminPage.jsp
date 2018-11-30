@@ -58,9 +58,9 @@ body {
 			<div class="btn-group">
 				<button type="button" data-toggle="dropdown">AGENTS</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Accepted Agents</a> <a
-						class="dropdown-item" href="#">Rejected Agents</a> <a
-						class="dropdown-item" href="#">Approve Agents</a>
+					<a class="dropdown-item" href="agentadminacceptedagentsdata">Accepted Agents</a> <a
+						class="dropdown-item" href="agentadminrejectedagentsdata">Rejected Agents</a> <a
+						class="dropdown-item" href="agentsapprovedata">Approve Agents</a>
 				</div>
 			</div>
 			

@@ -6,10 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="agent_tab")
+@DynamicUpdate
 public class Agent {
 	@Id
 	@GeneratedValue(generator="generate")
@@ -34,7 +36,7 @@ public class Agent {
 	private String occupation;
 	@Column(name="status")
 	private String status;
-	
+
 	public Agent() {
 		super();
 	}
@@ -44,7 +46,12 @@ public class Agent {
 	}
 
 	public void setStatus(String status) {
-		this.status = status;
+		if(status==null || "".equals(status) || status.isEmpty()) {
+			this.status="NO";
+		}
+		else {
+			this.status = status;
+		}
 	}
 
 	public Agent(Integer id) {
@@ -100,7 +107,7 @@ public class Agent {
 		this.address = address;
 	}
 
-	
+
 	public Long getMobile() {
 		return mobile;
 	}
@@ -132,7 +139,7 @@ public class Agent {
 				+ ", occupation=" + occupation + ", status=" + status + "]";
 	}
 
-	
-	
+
+
 
 }

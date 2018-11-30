@@ -44,4 +44,15 @@ public class AgentServiceImpl implements IAgentService {
 		return dao.getAllAgents();
 	}
 
+	@Transactional(readOnly=true)
+	public List<Agent> getAgentsByStatus(String status) {
+		return dao.getAgentsByStatus(status);
+	}
+
+	@Transactional
+	public void updateParticularAgentProperty(Agent agent) {
+		dao.updateParticularAgentProperty(agent);
+		
+	}
+
 }
