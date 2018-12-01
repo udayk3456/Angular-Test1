@@ -3,7 +3,6 @@ package com.app.dao;
 import java.util.List;
 
 import com.app.model.Company;
-import com.app.model.Share;
 
 public interface ICompanyDao {
 
@@ -12,5 +11,4 @@ public interface ICompanyDao {
 	void deleteCompany(int id);
 	Company getCompanyById(int id);
 	List<Company> getAllCompanies();
-	void saveShare(Share share);
 }

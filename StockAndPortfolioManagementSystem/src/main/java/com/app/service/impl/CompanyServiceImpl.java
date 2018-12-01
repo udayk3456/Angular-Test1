@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.ICompanyDao;
 import com.app.model.Company;
-import com.app.model.Share;
 import com.app.service.ICompanyService;
 
 @Service
@@ -39,12 +38,6 @@ public class CompanyServiceImpl implements ICompanyService{
 	@Transactional(readOnly=true)
 	public List<Company> getAllCompanies() {
 		return dao.getAllCompanies();
-	}
-
-	@Transactional
-	public void saveShare(Share share) {
-		dao.saveShare(share);
-		
 	}
 
 }

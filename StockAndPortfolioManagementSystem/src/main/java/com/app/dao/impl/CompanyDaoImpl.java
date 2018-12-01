@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.app.dao.ICompanyDao;
 import com.app.model.Company;
-import com.app.model.Share;
 @Repository
 public class CompanyDaoImpl implements ICompanyDao {
 	@Autowired
@@ -39,10 +38,5 @@ public class CompanyDaoImpl implements ICompanyDao {
 	@Override
 	public List<Company> getAllCompanies() {
 		return ht.loadAll(Company.class);
-	}
-
-	@Override
-	public void saveShare(Share share) {
-			ht.update(share);
 	}
 }
