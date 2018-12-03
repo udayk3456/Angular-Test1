@@ -10,7 +10,7 @@
 <%@include file="HomePage.jsp" %>
 <div align="center">
 <a href="customer/home">CustomerLogin</a><br>
-${}
+<a href="login?id=${id}">login</a>
 <a href="customerregister">CLICKHERE</a>ForRegistration
 <br>
 ${msg}

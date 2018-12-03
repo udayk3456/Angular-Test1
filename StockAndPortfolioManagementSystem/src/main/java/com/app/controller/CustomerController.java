@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.model.Agent;
 import com.app.model.Company;
-import com.app.model.Customer;
 import com.app.service.IAgentService;
 import com.app.service.ICompanyService;
 import com.app.service.ICustomerService;
@@ -44,9 +43,7 @@ public class CustomerController {
 	 *
 	 **/
 	@RequestMapping("/home")
-	public String home(ModelMap map) {
-		Customer c=new Customer();
-		
+	public String home() {
 		return "CustomerPage";
 	}
 	
