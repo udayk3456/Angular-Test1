@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.model.Agent;
 import com.app.model.Company;
+import com.app.model.Customer;
 import com.app.service.IAgentService;
 import com.app.service.ICompanyService;
+import com.app.service.ICustomerService;
+import com.app.service.IOrderTypeService;
+import com.app.service.IShareService;
+import com.app.service.ITermValidityService;
 
 /***
  * 
@@ -24,9 +29,14 @@ public class CustomerController {
 	private ICompanyService companyService;
 	@Autowired
 	private IAgentService agentService;
-	/*@Autowired
-	private TermValidityController tvc;*/
-	
+	@Autowired
+	private ITermValidityService termValidityService;
+	@Autowired
+	private IOrderTypeService orderTypeService;
+	@Autowired
+	private ICustomerService customerService;
+	@Autowired
+	private IShareService shareService;
 	
 	/***
 	 * 
@@ -34,8 +44,9 @@ public class CustomerController {
 	 *
 	 **/
 	@RequestMapping("/home")
-	public String home() {
-		//tvc.save();
+	public String home(ModelMap map) {
+		Customer c=new Customer();
+		
 		return "CustomerPage";
 	}
 	
@@ -78,6 +89,11 @@ public class CustomerController {
 		return "CustomerPurchaseShares";
 	}
 	
+	/**
+	 * 
+	 * SaleShares
+	 * 
+	 **/
 	
 	
 }
