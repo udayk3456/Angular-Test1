@@ -24,6 +24,8 @@ public class CustomerController {
 	private ICompanyService companyService;
 	@Autowired
 	private IAgentService agentService;
+	/*@Autowired
+	private TermValidityController tvc;*/
 	
 	
 	/***
@@ -33,6 +35,7 @@ public class CustomerController {
 	 **/
 	@RequestMapping("/home")
 	public String home() {
+		//tvc.save();
 		return "CustomerPage";
 	}
 	

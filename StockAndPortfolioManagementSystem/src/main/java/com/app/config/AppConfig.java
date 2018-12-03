@@ -21,7 +21,9 @@ import com.app.model.Admin;
 import com.app.model.Agent;
 import com.app.model.Company;
 import com.app.model.Customer;
+import com.app.model.OrderType;
 import com.app.model.Share;
+import com.app.model.TermValidity;
 
 @Configuration
 @ComponentScan(basePackages="com.app")
@@ -53,7 +55,7 @@ public class AppConfig {
 			public LocalSessionFactoryBean sfObj() {
 				LocalSessionFactoryBean sf=new LocalSessionFactoryBean();
 				sf.setDataSource(dsObj());
-				sf.setAnnotatedClasses(Admin.class,Agent.class,Company.class,Share.class,Customer.class);
+				sf.setAnnotatedClasses(Admin.class,Agent.class,Company.class,Share.class,Customer.class,TermValidity.class,OrderType.class);
 				sf.setHibernateProperties(props());
 				return sf;
 			}

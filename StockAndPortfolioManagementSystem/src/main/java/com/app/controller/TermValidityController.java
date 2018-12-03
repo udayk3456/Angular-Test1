@@ -13,8 +13,9 @@ public class TermValidityController {
 	
 	public void save() {
 		TermValidity t=new TermValidity();
-		t.setTermValidity("DayOrder");
+		t.setTermValidity("DayOrderType");
 		service.saveTermValidity(t);
+		System.out.println("term validity saved");
 	}
 
 }

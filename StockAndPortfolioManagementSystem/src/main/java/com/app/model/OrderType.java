@@ -15,4 +15,31 @@ public class OrderType {
 	private Integer id;
 	@Column(name="order_type")
 	private String orderType;
+
+	public OrderType() {
+		super();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderType [id=" + id + ", orderType=" + orderType + "]";
+	}
+	
+	
 }
