@@ -64,5 +64,6 @@ body {
 	</div>
 </nav>
 <body>
+<h3>Welcome ${customername} </h3>
 </body>
 </html>

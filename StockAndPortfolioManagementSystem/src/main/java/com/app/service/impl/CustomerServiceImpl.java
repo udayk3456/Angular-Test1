@@ -33,13 +33,11 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Transactional(readOnly=true)
 	public Customer getCustomerById(int id) {
-		// TODO Auto-generated method stub
 		return dao.getCustomerById(id);
 	}
 
 	@Transactional(readOnly=true)
 	public List<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
 		return dao.getAllCustomers();
 	}
 

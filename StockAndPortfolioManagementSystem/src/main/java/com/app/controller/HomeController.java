@@ -54,7 +54,9 @@ public class HomeController {
 
 	//customer login
 	@RequestMapping("/customerlogin")
-	public String customerLogin() {
+	public String customerLogin(ModelMap map) {
+		map.addAttribute("customers",customerService.getAllCustomers());
+		//System.out.println(customerService.getAllCustomers());
 		return "CustomerLogin";
 	}
 	//customer registration
