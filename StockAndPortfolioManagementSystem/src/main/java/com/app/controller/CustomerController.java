@@ -41,12 +41,12 @@ public class CustomerController {
 
 
 	@RequestMapping("/{id}")
-	public ModelAndView id(@PathVariable(value="id")String id) {
+	public void id(@PathVariable(value="id")String id) {
 		ModelAndView m=new ModelAndView();
 		String customerName=customerService.getCustomerById(Integer.parseInt(id.trim())).getUserName();
 		System.out.println(customerName);
 		
-		/*@RequestMapping("/Home")*/
+		@RequestMapping("/Home")
 		class Inner{
 			/***
 			 * 
@@ -104,7 +104,6 @@ public class CustomerController {
 			 * 
 			 **/
 		}
-		return m;
 	}
 }
 
