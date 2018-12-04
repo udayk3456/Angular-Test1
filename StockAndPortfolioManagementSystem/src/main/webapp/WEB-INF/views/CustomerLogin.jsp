@@ -14,7 +14,7 @@
 <c:forEach items="${customers}" var="c">
 <table>
 <tr>
-<td><a href="customer/${c.id}/Home/home">${c.userName}:CustomerLogin</a></td>
+<td><a href="customer/?id=${c.id}">${c.userName}:CustomerLogin</a></td>
 </tr>
 </table>
 </c:forEach>

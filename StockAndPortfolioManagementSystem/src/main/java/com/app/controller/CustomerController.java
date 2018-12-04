@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.app.model.Agent;
@@ -38,17 +38,23 @@ public class CustomerController {
 	private ICustomerService customerService;
 	@Autowired
 	private IShareService shareService;
+	
+	private String customerName;
 
 
-	@RequestMapping("/{id}")
-	public void id(@PathVariable(value="id")String id) {
+	@RequestMapping("/")
+	public ModelAndView id(@RequestParam Integer id) {
 		ModelAndView m=new ModelAndView();
-		String customerName=customerService.getCustomerById(Integer.parseInt(id.trim())).getUserName();
-		System.out.println(customerName);
+		customerName=customerService.getCustomerById(id).getUserName();
+		/*System.out.println(customerName);*/
+		m.addObject("customername",customerName);
+		m.setViewName("CustomerPage");
+	    return m;	
+	}
 		
-		@RequestMapping("/Home")
+		/*@RequestMapping("/")
 		class Inner{
-			/***
+			*//***
 			 * 
 			 *Custome_HomePage
 			 *
@@ -68,6 +74,7 @@ public class CustomerController {
 			@RequestMapping("/viewcompanies")
 			public String companiesData(ModelMap map) {
 				List<Company> companies=companyService.getAllCompanies();
+				map.addAttribute("customername",customerName);
 				map.addAttribute("companies",companies);
 				return "CustomerViewCompaniesData";
 			}
@@ -82,6 +89,7 @@ public class CustomerController {
 			public String agentsData(ModelMap map) {
 				List<Agent> agents=agentService.getAllAgents();
 				map.addAttribute("agents",agents);
+				map.addAttribute("customername",customerName);
 				return "CustomerViewAgentsData";
 			}
 
@@ -93,8 +101,7 @@ public class CustomerController {
 			 **/
 			@RequestMapping("/purchaseshares")
 			public String purchaseShares(ModelMap map) {
-
-
+				map.addAttribute("customername",customerName);
 				return "CustomerPurchaseShares";
 			}
 
@@ -103,7 +110,8 @@ public class CustomerController {
 			 * SaleShares
 			 * 
 			 **/
-		}
+		/*}
+		return m;*/
 	}
-}
+
 
