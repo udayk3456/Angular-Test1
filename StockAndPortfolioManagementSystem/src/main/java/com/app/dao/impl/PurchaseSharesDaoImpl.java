@@ -15,7 +15,7 @@ public class PurchaseSharesDaoImpl implements IPurchaseSharesDao {
 
 	@Override
 	public Integer savePurchaseShares(PurchaseShares pshares) {
-		return (Integer) ht.save(pshares);
+		return (Integer)ht.save(pshares);
 	}
 
 	@Override

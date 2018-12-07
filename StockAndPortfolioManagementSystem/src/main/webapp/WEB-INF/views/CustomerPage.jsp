@@ -64,6 +64,6 @@ body {
 	</div>
 </nav>
 <body>
-<h3>Welcome ${customername} </h3>
+<h3>Welcome ${customer.userName} </h3>
 </body>
 </html>

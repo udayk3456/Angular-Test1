@@ -70,6 +70,7 @@ public class HomeController {
 	private String customerinsert(@ModelAttribute Customer customer,ModelMap map) {
 		customerService.saveCustomer(customer);
 		String msg="customer saved successfully";
+		map.addAttribute("customers",customerService.getAllCustomers());
 		map.addAttribute("msg",msg);
 		return "CustomerLogin";
 	}

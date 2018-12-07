@@ -15,6 +15,7 @@ public class Customer {
 	@GenericGenerator(name="generate",strategy="increment")
 	@Column(name="pk_id")
 	private Integer id;
+	
 	@Column(name="user_name")
 	private String userName;
 	@Column(name="password")

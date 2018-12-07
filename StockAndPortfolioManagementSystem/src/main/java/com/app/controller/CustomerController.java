@@ -1,20 +1,26 @@
 package com.app.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.app.model.Agent;
 import com.app.model.Company;
+import com.app.model.Customer;
+import com.app.model.PurchaseShares;
 import com.app.service.IAgentService;
 import com.app.service.ICompanyService;
 import com.app.service.ICustomerService;
 import com.app.service.IOrderTypeService;
+import com.app.service.IPurchaseSharesService;
 import com.app.service.IShareService;
 import com.app.service.ITermValidityService;
 
@@ -38,30 +44,30 @@ public class CustomerController {
 	private ICustomerService customerService;
 	@Autowired
 	private IShareService shareService;
+	@Autowired
+	private IPurchaseSharesService purchaseSharesService;
 	
-	private String customerName;
+	private Customer customer;
 
 
 	@RequestMapping("/")
 	public ModelAndView id(@RequestParam Integer id) {
 		ModelAndView m=new ModelAndView();
-		customerName=customerService.getCustomerById(id).getUserName();
+		customer=customerService.getCustomerById(id);
 		/*System.out.println(customerName);*/
-		m.addObject("customername",customerName);
+		m.addObject("customer",customer);
 		m.setViewName("CustomerPage");
 	    return m;	
 	}
 		
-		/*@RequestMapping("/")
-		class Inner{
-			*//***
+		/***
 			 * 
 			 *Custome_HomePage
 			 *
 			 **/
 			@RequestMapping("/home")
 			public String home(ModelMap map) {
-				map.addAttribute("customername",customerName);
+				map.addAttribute("customer",customer);
 				return "CustomerPage";
 			}
 
@@ -74,7 +80,7 @@ public class CustomerController {
 			@RequestMapping("/viewcompanies")
 			public String companiesData(ModelMap map) {
 				List<Company> companies=companyService.getAllCompanies();
-				map.addAttribute("customername",customerName);
+				map.addAttribute("customer",customer);
 				map.addAttribute("companies",companies);
 				return "CustomerViewCompaniesData";
 			}
@@ -87,9 +93,9 @@ public class CustomerController {
 			 **/
 			@RequestMapping("/viewagents")
 			public String agentsData(ModelMap map) {
-				List<Agent> agents=agentService.getAllAgents();
+				List<Agent> agents=agentService.getAgentsByStatus("APPROVED");
 				map.addAttribute("agents",agents);
-				map.addAttribute("customername",customerName);
+				map.addAttribute("customer",customer);
 				return "CustomerViewAgentsData";
 			}
 
@@ -101,7 +107,28 @@ public class CustomerController {
 			 **/
 			@RequestMapping("/purchaseshares")
 			public String purchaseShares(ModelMap map) {
-				map.addAttribute("customername",customerName);
+				List<Customer> customers=new ArrayList<>();
+				customers.add(customer);
+				map.addAttribute("customers",customers);
+				System.out.println("customers :"+customers);
+				map.addAttribute("companies",companyService.getAllCompanies());
+				map.addAttribute("termvalidity",termValidityService.getAllTermValidities());
+				map.addAttribute("ordertype",orderTypeService.gellAllOrderTypes());
+				map.addAttribute("purchase",new PurchaseShares());
+				return "CustomerPurchaseShares";
+			}
+			@RequestMapping(value="/purchasesave",method=RequestMethod.POST)
+			public String savePurchaseShares(@ModelAttribute PurchaseShares purchase,ModelMap map) {
+				/*map.addAttribute("purchase",purchase);*/
+				int id=purchaseSharesService.savePurchaseShares(purchase);
+				map.addAttribute("msg","purchase '"+id+"' saved successfully");
+				List<Customer> customers=new ArrayList<>();
+				customers.add(customer);
+				System.out.println("customers :"+customers);
+				map.addAttribute("companies",companyService.getAllCompanies());
+				map.addAttribute("termvalidity",termValidityService.getAllTermValidities());
+				map.addAttribute("ordertype",orderTypeService.gellAllOrderTypes());
+				map.addAttribute("purchase",new PurchaseShares());
 				return "CustomerPurchaseShares";
 			}
 
@@ -110,8 +137,6 @@ public class CustomerController {
 			 * SaleShares
 			 * 
 			 **/
-		/*}
-		return m;*/
 	}
 
 

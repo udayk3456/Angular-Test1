@@ -13,6 +13,7 @@ public class TermValidity {
 		@GeneratedValue(generator="id")
 		@GenericGenerator(name="id",strategy="increment")
 		private Integer id;
+		
 		@Column(name="term_validity")
 		private String termValidity;
 		
