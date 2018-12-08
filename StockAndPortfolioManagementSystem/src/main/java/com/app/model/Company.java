@@ -29,10 +29,6 @@ public class Company {
 	@JoinColumn(name="cidfk",unique=true)
 	private Share companyShare;
 	
-	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	@JoinColumn(name="cidfk")
-	private SharesAvailable sharesAvailable;
-	
 	public Company() {
 		super();
 	}

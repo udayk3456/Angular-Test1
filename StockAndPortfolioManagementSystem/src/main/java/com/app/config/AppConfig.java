@@ -7,13 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -26,6 +24,7 @@ import com.app.model.Customer;
 import com.app.model.OrderType;
 import com.app.model.PurchaseShares;
 import com.app.model.Share;
+import com.app.model.SharesAvailable;
 import com.app.model.TermValidity;
 
 @Configuration
@@ -59,7 +58,7 @@ public class AppConfig {
 			public LocalSessionFactoryBean sfObj() {
 				LocalSessionFactoryBean sf=new LocalSessionFactoryBean();
 				sf.setDataSource(dsObj());
-				sf.setAnnotatedClasses(Admin.class,Agent.class,Company.class,Share.class,Customer.class,TermValidity.class,OrderType.class,PurchaseShares.class);
+				sf.setAnnotatedClasses(Admin.class,Agent.class,Company.class,Share.class,Customer.class,TermValidity.class,OrderType.class,PurchaseShares.class,SharesAvailable.class);
 				sf.setHibernateProperties(props());
 				return sf;
 			}

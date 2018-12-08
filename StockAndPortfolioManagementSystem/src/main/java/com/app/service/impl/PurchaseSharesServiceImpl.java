@@ -19,10 +19,13 @@ public class PurchaseSharesServiceImpl implements IPurchaseSharesService {
 
 	@Transactional
 	public Integer savePurchaseShares(PurchaseShares pshares) {
-		if(pshares.getNumberOfPurchasedShares()<=companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getNumberOfShares()){
-		pshares.setTotalCost((pshares.getNumberOfPurchasedShares().doubleValue())*(companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getSharePrice()));
+		int id=0;
+		if(pshares.getSharesAvailable().getSharesPurchased()<=companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getNumberOfShares()){
+		pshares.setTotalCost((pshares.getSharesAvailable().getSharesPurchased().doubleValue())*(companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getSharePrice()));
+		pshares.getSharesAvailable().setSharesAvailable((companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getNumberOfShares())-(pshares.getSharesAvailable().getSharesPurchased()));
+		id=dao.savePurchaseShares(pshares);
 		}
-		return dao.savePurchaseShares(pshares);
+		return id;
 	}
 
 	@Transactional(readOnly=true)

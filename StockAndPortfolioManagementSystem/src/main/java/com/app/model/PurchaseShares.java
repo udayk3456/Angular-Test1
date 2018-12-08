@@ -1,7 +1,9 @@
 package com.app.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -18,7 +20,7 @@ public class PurchaseShares {
 	@GenericGenerator(name="ps",strategy="increment")
 	@Column(name="ps_col")
 	private int id;
-	
+	   
 	@ManyToOne
 	@JoinColumn(name="cust_fk")
 	private Customer customer;
@@ -27,8 +29,9 @@ public class PurchaseShares {
 	@JoinColumn(name="comfk")
 	private Company company;
 	
-	@Column(name="numberofpurchasedshares")
-	private Integer numberOfPurchasedShares;
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="shares_available_fk")
+	private SharesAvailable sharesAvailable;
 	
 	@Column(name="totalcost")
 	private Double totalCost;
@@ -69,16 +72,6 @@ public class PurchaseShares {
 		this.company = company;
 	}
 
-	
-
-	public Integer getNumberOfPurchasedShares() {
-		return numberOfPurchasedShares;
-	}
-
-	public void setNumberOfPurchasedShares(Integer numberOfPurchasedShares) {
-		this.numberOfPurchasedShares = numberOfPurchasedShares;
-	}
-
 	public TermValidity getTermValidity() {
 		return termValidity;
 	}
@@ -103,11 +96,19 @@ public class PurchaseShares {
 		this.totalCost = totalCost;
 	}
 
+	public SharesAvailable getSharesAvailable() {
+		return sharesAvailable;
+	}
+
+	public void setSharesAvailable(SharesAvailable sharesAvailable) {
+		this.sharesAvailable = sharesAvailable;
+	}
+
 	@Override
 	public String toString() {
-		return "PurchaseShares [id=" + id + ", customer=" + customer + ", company=" + company
-				+ ", numberOfPurchasedShares=" + numberOfPurchasedShares + ", totalCost=" + totalCost
-				+ ", termValidity=" + termValidity + ", orderType=" + orderType + "]";
+		return "PurchaseShares [id=" + id + ", customer=" + customer + ", company=" + company + ", sharesAvailable="
+				+ sharesAvailable + ", totalCost=" + totalCost + ", termValidity=" + termValidity + ", orderType="
+				+ orderType + "]";
 	}
 
 	

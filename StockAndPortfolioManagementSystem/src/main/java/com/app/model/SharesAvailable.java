@@ -16,6 +16,8 @@ public class SharesAvailable {
 	@GenericGenerator(name="sa",strategy="increment")
 	@Column(name="sa_pk")
 	private int id;
+	@Column(name="shares_purchased")
+	private Integer sharesPurchased;
 	@Column(name="shares_available")
 	private Integer sharesAvailable;
 	
@@ -31,6 +33,14 @@ public class SharesAvailable {
 		this.id = id;
 	}
 
+	public Integer getSharesPurchased() {
+		return sharesPurchased;
+	}
+
+	public void setSharesPurchased(Integer sharesPurchased) {
+		this.sharesPurchased = sharesPurchased;
+	}
+
 	public Integer getSharesAvailable() {
 		return sharesAvailable;
 	}
@@ -39,10 +49,11 @@ public class SharesAvailable {
 		this.sharesAvailable = sharesAvailable;
 	}
 
+
 	@Override
 	public String toString() {
-		return "SharesAvailable [id=" + id + ", sharesAvailable=" + sharesAvailable + "]";
+		return "SharesAvailable [id=" + id + ", sharesPurchased=" + sharesPurchased + ", sharesAvailable="
+				+ sharesAvailable + "]";
 	}
-	
 	
 }
