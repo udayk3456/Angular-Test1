@@ -28,8 +28,9 @@
 				</tr>
 				<tr>
 					<td>No.of shares</td>
-					<td>:<form:input path="numberOfShares" /></td>
+					<td>:<form:input path="numberOfPurchasedShares" /></td>
 				</tr>
+				<form:hidden path="totalCost"/>
 				<tr>
 					<td>TermValidity</td>
 					<td>:<form:select path="termValidity.id" > <form:options

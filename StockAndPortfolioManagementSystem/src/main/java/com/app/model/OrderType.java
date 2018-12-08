@@ -10,8 +10,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class OrderType {
 	@Id
-	@GeneratedValue(generator="id")
-	@GenericGenerator(name="id",strategy="increment")
+	@GeneratedValue(generator="ot")
+	@GenericGenerator(name="ot",strategy="increment")
 	private Integer id;
 	@Column(name="order_type")
 	private String orderType;

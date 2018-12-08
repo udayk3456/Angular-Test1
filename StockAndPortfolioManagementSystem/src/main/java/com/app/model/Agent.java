@@ -14,8 +14,8 @@ import org.hibernate.annotations.GenericGenerator;
 @DynamicUpdate
 public class Agent {
 	@Id
-	@GeneratedValue(generator="generate")
-	@GenericGenerator(name="generate",strategy="increment")
+	@GeneratedValue(generator="agent")
+	@GenericGenerator(name="agent",strategy="increment")
 	@Column(name="pk_id")
 	private Integer id;
 	@Column(name="user_name")

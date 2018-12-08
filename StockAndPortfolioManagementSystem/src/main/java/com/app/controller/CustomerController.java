@@ -54,7 +54,6 @@ public class CustomerController {
 	public ModelAndView id(@RequestParam Integer id) {
 		ModelAndView m=new ModelAndView();
 		customer=customerService.getCustomerById(id);
-		/*System.out.println(customerName);*/
 		m.addObject("customer",customer);
 		m.setViewName("CustomerPage");
 	    return m;	
@@ -110,25 +109,25 @@ public class CustomerController {
 				List<Customer> customers=new ArrayList<>();
 				customers.add(customer);
 				map.addAttribute("customers",customers);
-				System.out.println("customers :"+customers);
 				map.addAttribute("companies",companyService.getAllCompanies());
 				map.addAttribute("termvalidity",termValidityService.getAllTermValidities());
 				map.addAttribute("ordertype",orderTypeService.gellAllOrderTypes());
 				map.addAttribute("purchase",new PurchaseShares());
+				map.addAttribute("customer",customer);
 				return "CustomerPurchaseShares";
 			}
 			@RequestMapping(value="/purchasesave",method=RequestMethod.POST)
 			public String savePurchaseShares(@ModelAttribute PurchaseShares purchase,ModelMap map) {
-				/*map.addAttribute("purchase",purchase);*/
 				int id=purchaseSharesService.savePurchaseShares(purchase);
 				map.addAttribute("msg","purchase '"+id+"' saved successfully");
 				List<Customer> customers=new ArrayList<>();
 				customers.add(customer);
-				System.out.println("customers :"+customers);
+				map.addAttribute("customers",customers);
 				map.addAttribute("companies",companyService.getAllCompanies());
 				map.addAttribute("termvalidity",termValidityService.getAllTermValidities());
 				map.addAttribute("ordertype",orderTypeService.gellAllOrderTypes());
 				map.addAttribute("purchase",new PurchaseShares());
+				map.addAttribute("customer",customer);
 				return "CustomerPurchaseShares";
 			}
 
@@ -137,6 +136,9 @@ public class CustomerController {
 			 * SaleShares
 			 * 
 			 **/
+			
+			
+			
 	}
 
 

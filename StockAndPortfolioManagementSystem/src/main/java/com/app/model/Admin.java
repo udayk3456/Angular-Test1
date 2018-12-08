@@ -11,8 +11,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="Admin_tab")
 public class Admin {
 	@Id
-	@GeneratedValue(generator="generate")
-	@GenericGenerator(name="generate",strategy="increment")
+	@GeneratedValue(generator="admin")
+	@GenericGenerator(name="admin",strategy="increment")
 	private Integer id;
 	private String name;
 	private String password;

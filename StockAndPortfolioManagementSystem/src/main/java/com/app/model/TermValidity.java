@@ -10,8 +10,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class TermValidity {
 		@Id
-		@GeneratedValue(generator="id")
-		@GenericGenerator(name="id",strategy="increment")
+		@GeneratedValue(generator="tv")
+		@GenericGenerator(name="tv",strategy="increment")
 		private Integer id;
 		
 		@Column(name="term_validity")

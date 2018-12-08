@@ -24,11 +24,14 @@ public class PurchaseShares {
 	private Customer customer;
 	
 	@ManyToOne
-	@JoinColumn(name="comfk",unique=true)
+	@JoinColumn(name="comfk")
 	private Company company;
 	
-	@Column(name="numberofshares")
-	private Integer numberOfShares;
+	@Column(name="numberofpurchasedshares")
+	private Integer numberOfPurchasedShares;
+	
+	@Column(name="totalcost")
+	private Double totalCost;
 	
 	@ManyToOne
 	@JoinColumn(name="tvfk")
@@ -66,12 +69,14 @@ public class PurchaseShares {
 		this.company = company;
 	}
 
-	public Integer getNumberOfShares() {
-		return numberOfShares;
+	
+
+	public Integer getNumberOfPurchasedShares() {
+		return numberOfPurchasedShares;
 	}
 
-	public void setNumberOfShares(Integer numberOfShares) {
-		this.numberOfShares = numberOfShares;
+	public void setNumberOfPurchasedShares(Integer numberOfPurchasedShares) {
+		this.numberOfPurchasedShares = numberOfPurchasedShares;
 	}
 
 	public TermValidity getTermValidity() {
@@ -90,11 +95,20 @@ public class PurchaseShares {
 		this.orderType = orderType;
 	}
 
-	@Override
-	public String toString() {
-		return "PurchaseShares [id=" + id + ", customer=" + customer + ", company=" + company + ", numberOfShares="
-				+ numberOfShares + ", termValidity=" + termValidity + ", orderType=" + orderType + "]";
+	public Double getTotalCost() {
+		return totalCost;
 	}
 
-		
+	public void setTotalCost(Double totalCost) {
+		this.totalCost = totalCost;
+	}
+
+	@Override
+	public String toString() {
+		return "PurchaseShares [id=" + id + ", customer=" + customer + ", company=" + company
+				+ ", numberOfPurchasedShares=" + numberOfPurchasedShares + ", totalCost=" + totalCost
+				+ ", termValidity=" + termValidity + ", orderType=" + orderType + "]";
+	}
+
+	
 }
