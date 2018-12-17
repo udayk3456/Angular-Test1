@@ -32,6 +32,7 @@ $(document).ready(function(){
 					<th>NewPriceForShare :</th>
 					<th><form:input path="sharePrice" id="price"/></th>
 					<th><form:hidden path="numberOfShares"/></th>
+					<form:hidden path="sharesAvailable.id"/>
 				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="submit" value="update"></td>

@@ -29,6 +29,7 @@
 					<th>NumberOfShares :</th>
 					<th><form:input path="numberOfShares" /></th>
 				</tr>
+				<form:hidden path="sharesAvailable.id"/>
 				<tr>
 					<th colspan="2"><input type="submit" value="add"></th>
 				</tr>

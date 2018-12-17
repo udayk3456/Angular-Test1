@@ -1,8 +1,12 @@
 package com.app.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,6 +18,10 @@ public class Share {
 	private int id;
 	private Integer sharePrice;
 	private Integer numberOfShares;
+	
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="shares_available_fk")
+	private SharesAvailable sharesAvailable;
 	public Share() {
 		super();
 	}
@@ -42,9 +50,18 @@ public class Share {
 		this.sharePrice = sharePrice;
 	}
 
+	public SharesAvailable getSharesAvailable() {
+		return sharesAvailable;
+	}
+
+	public void setSharesAvailable(SharesAvailable sharesAvailable) {
+		this.sharesAvailable = sharesAvailable;
+	}
+
 	@Override
 	public String toString() {
-		return "Share [id=" + id + ", sharePrice=" + sharePrice + ", numberOfShares=" + numberOfShares + "]";
+		return "Share [id=" + id + ", sharePrice=" + sharePrice + ", numberOfShares=" + numberOfShares
+				+ ", sharesAvailable=" + sharesAvailable + "]";
 	}
 
 	

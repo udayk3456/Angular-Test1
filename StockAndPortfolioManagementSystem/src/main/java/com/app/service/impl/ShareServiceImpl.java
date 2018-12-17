@@ -21,6 +21,9 @@ public class ShareServiceImpl implements IShareService{
 
 	@Transactional
 	public void updateShare(Share share) {
+		if(share.getNumberOfShares()!=null) {
+			share.getSharesAvailable().setSharesAvailable(share.getNumberOfShares());
+			}
 		dao.updateShare(share);
 	}
 

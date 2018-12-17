@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.boldClass{
+font-weight: bold;
+}
+.italiClass{
+font-style: italic;
+}
+.colorClass{
+    color: red;
+}

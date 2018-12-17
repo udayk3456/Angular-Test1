@@ -28,7 +28,7 @@
 				</tr>
 				<tr>
 					<td>No.of shares</td>
-					<td>:<form:input path="sharesAvailable.sharesPurchased" /></td>
+					<td>:<form:input path="company.companyShare.sharesAvailable.sharesPurchased" /></td>
 				</tr>
 				<form:hidden path="totalCost"/>
 				<tr>

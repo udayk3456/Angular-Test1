@@ -28,4 +28,10 @@ public class PurchaseSharesDaoImpl implements IPurchaseSharesDao {
 		return ht.loadAll(PurchaseShares.class);
 	}
 
+	@Override
+	public void updatePurchaseShares(PurchaseShares pshares) {
+		ht.update(pshares);
+		
+	}
+
 }

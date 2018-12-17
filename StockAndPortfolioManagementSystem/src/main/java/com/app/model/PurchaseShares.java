@@ -25,13 +25,13 @@ public class PurchaseShares {
 	@JoinColumn(name="cust_fk")
 	private Customer customer;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="comfk")
 	private Company company;
 	
-	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	/*@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="shares_available_fk")
-	private SharesAvailable sharesAvailable;
+	private SharesAvailable sharesAvailable;*/
 	
 	@Column(name="totalcost")
 	private Double totalCost;
@@ -96,20 +96,21 @@ public class PurchaseShares {
 		this.totalCost = totalCost;
 	}
 
-	public SharesAvailable getSharesAvailable() {
+	@Override
+	public String toString() {
+		return "PurchaseShares [id=" + id + ", customer=" + customer + ", company=" + company + ", totalCost="
+				+ totalCost + ", termValidity=" + termValidity + ", orderType=" + orderType + "]";
+	}
+
+	/*public SharesAvailable getSharesAvailable() {
 		return sharesAvailable;
 	}
 
 	public void setSharesAvailable(SharesAvailable sharesAvailable) {
 		this.sharesAvailable = sharesAvailable;
-	}
+	}*/
 
-	@Override
-	public String toString() {
-		return "PurchaseShares [id=" + id + ", customer=" + customer + ", company=" + company + ", sharesAvailable="
-				+ sharesAvailable + ", totalCost=" + totalCost + ", termValidity=" + termValidity + ", orderType="
-				+ orderType + "]";
-	}
+	
 
 	
 }

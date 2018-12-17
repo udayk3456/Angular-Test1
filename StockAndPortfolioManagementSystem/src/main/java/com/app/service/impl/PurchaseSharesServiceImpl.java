@@ -20,12 +20,17 @@ public class PurchaseSharesServiceImpl implements IPurchaseSharesService {
 	@Transactional
 	public Integer savePurchaseShares(PurchaseShares pshares) {
 		int id=0;
-		if(pshares.getSharesAvailable().getSharesPurchased()<=companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getNumberOfShares()){
-		pshares.setTotalCost((pshares.getSharesAvailable().getSharesPurchased().doubleValue())*(companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getSharePrice()));
-		pshares.getSharesAvailable().setSharesAvailable((companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getNumberOfShares())-(pshares.getSharesAvailable().getSharesPurchased()));
+		if(pshares.getCompany().getCompanyShare().getSharesAvailable().getSharesPurchased()<=companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getSharesAvailable().getSharesAvailable()){
+		pshares.setTotalCost((pshares.getCompany().getCompanyShare().getSharesAvailable().getSharesPurchased().doubleValue())*(companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getSharePrice()));
+		pshares.getCompany().getCompanyShare().getSharesAvailable().setSharesAvailable((companyService.getCompanyById(pshares.getCompany().getId()).getCompanyShare().getNumberOfShares())-(pshares.getCompany().getCompanyShare().getSharesAvailable().getSharesPurchased()));
 		id=dao.savePurchaseShares(pshares);
 		}
 		return id;
+	}
+	
+	@Transactional
+	public void updatePurchaseShares(PurchaseShares pshares) {
+		dao.updatePurchaseShares(pshares);
 	}
 
 	@Transactional(readOnly=true)
@@ -37,5 +42,6 @@ public class PurchaseSharesServiceImpl implements IPurchaseSharesService {
 	public List<PurchaseShares> getAllPurchaseShares() {
 		return dao.getAllPurchaseShares();
 	}
+
 
 }
